@@ -37,8 +37,8 @@ def convert_3Let(inp):
 
 # Have HLA-DP as a standard
 def get_chains(struct, mhc_class = 1,mhcID='HLA-DP'):
-    trav_genes = pandas.read_csv('/Users/boughterct/Desktop/germline_displays/trav_human_full.csv')
-    trbv_genes = pandas.read_csv('/Users/boughterct/Desktop/germline_displays/trbv_human_full.csv')
+    trav_genes = pandas.read_csv('trav_human_full.csv')
+    trbv_genes = pandas.read_csv('trbv_human_full.csv')
     if mhc_class == 1:
         mhc_seq = 'GSHSMRYFFTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQKMEPRAPWIEQEGPEYWDQETRNMKAHSQTDRANLGTLRGYYNQSEDGSHTIQIMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAVHAAEQRRVYLEGRCVDGLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWE'
     elif mhc_class == 2:
@@ -164,8 +164,8 @@ def calc_process_dist(struct, tcr_chain, mhc_chain, alpha_nameF, beta_nameF, tab
 
     hlaA_0101 = 'SHSMRYFFTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQKMEPRAPWIEQEGPEYWDQETRNMKAHSQTDRANLGTLRGYYNQSEDGSHTIQIMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAVHAAEQRRVYLEGRCVDGLRRYLENGKETL'
 
-    trav_cdrs = pandas.read_csv('/Users/boughterct/Desktop/germline_displays/trav_human_cdrs.csv')
-    trbv_cdrs = pandas.read_csv('/Users/boughterct/Desktop/germline_displays/trbv_human_cdrs.csv')
+    trav_cdrs = pandas.read_csv('trav_human_cdrs.csv')
+    trbv_cdrs = pandas.read_csv('trbv_human_cdrs.csv')
     trav_12seq = trav_cdrs[(trav_cdrs['gene'] == alpha_nameF)][['cdr1', 'cdr2']].values[0]
     trbv_12seq = trbv_cdrs[(trbv_cdrs['gene'] == beta_nameF)][['cdr1', 'cdr2']].values[0]
     tcr_sub = [ residue for residue in struct.topology.chain(tcr_chain).residues ]
@@ -369,8 +369,8 @@ def calc_process_dist(struct, tcr_chain, mhc_chain, alpha_nameF, beta_nameF, tab
 
 def calc_process_classIIdist(struct, tcr_chain, mhc_alpha_chain, mhc_beta_chain, alpha_nameF, beta_nameF,
 table, ab='alpha', dist_cutoff=0.35,mhcID = 'HLA-DP'):
-    trav_cdrs = pandas.read_csv('/Users/boughterct/Desktop/germline_displays/trav_human_cdrs.csv')
-    trbv_cdrs = pandas.read_csv('/Users/boughterct/Desktop/germline_displays/trbv_human_cdrs.csv')
+    trav_cdrs = pandas.read_csv('trav_human_cdrs.csv')
+    trbv_cdrs = pandas.read_csv('trbv_human_cdrs.csv')
     trav_12seq = trav_cdrs[(trav_cdrs['gene'] == alpha_nameF)][['cdr1', 'cdr2']].values[0]
     trbv_12seq = trbv_cdrs[(trbv_cdrs['gene'] == beta_nameF)][['cdr1', 'cdr2']].values[0]
     tcr_sub = [ residue for residue in struct.topology.chain(tcr_chain).residues ]
